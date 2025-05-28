@@ -1,0 +1,19 @@
+.logo {
+    width: 70px;
+    height: 50px;
+}
+
+.nav-items-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-link{
+    display: flex;
+    justify-content: center;
+}
+
+.icon-btn:hover {
+    border: 1px solid white;
+    color: white;
+}

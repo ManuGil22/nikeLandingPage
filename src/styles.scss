@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px 0;
+    justify-self: center;
+}
+
+.icon-primary {
+    color: $icon-primary;
+}
