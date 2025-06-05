@@ -1,24 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ShoesDataService } from '../../../services/shoes-data.service';
-import { take } from 'rxjs';
-import { ShoesDto } from '../../../api.model';
+import { ShoesFacadeService } from '../../../services/shoes-facade.service';
 
 @Component({
     selector: 'app-body',
     templateUrl: './body.component.html',
     styleUrl: './body.component.scss'
 })
-export class BodyComponent implements OnInit{
+export class BodyComponent implements OnInit {
 
-    shoes!: ShoesDto;
-
-    constructor (
-        private readonly shoesDataService: ShoesDataService,
-    ) {}
+    constructor(private readonly shoesFacade: ShoesFacadeService) { }
 
     ngOnInit(): void {
-        this.shoesDataService.getAll().pipe(take(1)).subscribe(shoes => {
-            this.shoes = shoes;
-        })
     }
 }
