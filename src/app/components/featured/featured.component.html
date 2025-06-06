@@ -1,0 +1,6 @@
+<h1 class="section-header">Destacados</h1>
+<div class="featured-container">
+    @for (shoe of (shoesFacade.shoes$ | async); track shoe.id) {
+        <app-item-card [shoe]="shoe"></app-item-card>
+    }
+</div>

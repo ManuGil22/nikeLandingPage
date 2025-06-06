@@ -1,0 +1,14 @@
+@import '/src/variables.scss';
+
+.card {
+    width: 18rem;
+    height: 25rem;
+    border: 2px solid transparent;
+}
+
+.card:hover {
+    cursor: pointer;
+    border: 2px solid black;
+    background-color: $background-secondary;
+    color: $text-primary;
+}

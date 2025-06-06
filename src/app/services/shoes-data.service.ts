@@ -12,7 +12,7 @@ export class ShoesDataService {
 
     constructor(private http: HttpClient) { }
 
-    getAll(): Observable<ShoesDto> {
-        return this.http.get<ShoesDto>(BASE_URL);
+    getAll(): Observable<ShoesDto[]> {
+        return this.http.get<ShoesDto[]>(BASE_URL);
     }
 }

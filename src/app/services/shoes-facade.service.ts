@@ -8,7 +8,8 @@ import { Subject, take } from 'rxjs';
 })
 export class ShoesFacadeService {
 
-    shoes$ = new Subject<ShoesDto>();
+    private shoesSubject = new Subject<ShoesDto[]>();
+    shoes$ = this.shoesSubject.asObservable();
 
     constructor(
         private readonly shoesDataService: ShoesDataService,
@@ -18,7 +19,7 @@ export class ShoesFacadeService {
 
     fetchShoes() {
         this.shoesDataService.getAll().pipe(take(1)).subscribe(shoes => {
-            this.shoes$.next(shoes);
+            this.shoesSubject.next(shoes);
         })
     }
 }
