@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ShoesFacadeService } from '../../services/shoes-facade.service';
-import { categoryData } from '../category-card/category-card.component';
+import { CategoryCardData } from '../category-card/category-card.component';
 
 @Component({
     selector: 'app-featured',
@@ -9,19 +9,19 @@ import { categoryData } from '../category-card/category-card.component';
 })
 export class FeaturedComponent {
 
-    readonly menCategory: categoryData = {
+    readonly menCategory: CategoryCardData = {
         categoryName: 'Hombres',
         categoryRef: '/men',
         imgSrc: '/assets/men.webp'
     }
 
-    readonly womenCategory: categoryData = {
+    readonly womanCategory: CategoryCardData = {
         categoryName: 'Mujeres',
-        categoryRef: '/women',
-        imgSrc: '/assets/women.webp'
+        categoryRef: '/woman',
+        imgSrc: '/assets/woman.webp'
     }
 
-    readonly kidsCategory: categoryData = {
+    readonly kidsCategory: CategoryCardData = {
         categoryName: 'Niños',
         categoryRef: '/kids',
         imgSrc: '/assets/kids.webp'
