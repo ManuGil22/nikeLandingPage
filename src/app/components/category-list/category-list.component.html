@@ -1,0 +1,15 @@
+@if (categoryData) {
+    <app-image-banner [bannerSrc]="categoryData.headerBanner"></app-image-banner>
+    <h1 class="section-header">{{ categoryData.categoryLabel }}</h1>
+    <div class="shoes-list-container">
+        @let shoesList = shoesList$ | async;
+        @if (shoesList && shoesList.length > 0) {
+            @for (shoe of shoesList; track shoe.id) {
+                <app-item-card [shoe]="shoe"></app-item-card>
+            }
+        } @else {
+            <p>No hay zapatos disponibles.</p>
+        }
+    </div>
+    <app-image-banner [bannerSrc]="categoryData.footerBanner"></app-image-banner>
+}

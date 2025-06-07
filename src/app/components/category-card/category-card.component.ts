@@ -7,12 +7,12 @@ import { Component, Input } from '@angular/core';
 })
 export class CategoryCardComponent {
 
-    @Input() categoryData!: categoryData;
+    @Input() categoryCardData!: CategoryCardData;
 
     constructor(){}
 }
 
-export interface categoryData {
+export interface CategoryCardData {
     imgSrc: string,
     categoryName: string,
     categoryRef: string
