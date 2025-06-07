@@ -8,8 +8,9 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemCardComponent } from './components/item-card/item-card.component';
 import { HomeComponent } from './components/home/home.component';
-import { ImageHeaderComponent } from './components/layout/image-header/image-header.component';
 import { FeaturedComponent } from './components/featured/featured.component';
+import { CategoryCardComponent } from './components/category-card/category-card.component';
+import { ImageBannerComponent } from './components/image-banner/image-banner.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,9 @@ import { FeaturedComponent } from './components/featured/featured.component';
     FooterComponent,
     HomeComponent,
     ItemCardComponent,
-    ImageHeaderComponent,
+    ImageBannerComponent,
     FeaturedComponent,
+    CategoryCardComponent,
   ],
   imports: [
     BrowserModule,

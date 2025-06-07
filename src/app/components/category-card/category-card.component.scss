@@ -1,0 +1,14 @@
+@import '/src/variables.scss';
+
+.badge {
+    background-color: $background-secondary;
+}
+
+.category-card {
+    border: 2px solid white;
+}
+
+.category-card:hover {
+    border: 2px solid $background-secondary;
+    opacity: 90%;
+}
