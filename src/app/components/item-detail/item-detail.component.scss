@@ -141,6 +141,20 @@
     color: $text-primary;
 }
 
+.cart-btn {
+    font-weight: 500;
+    border-radius: 20px;
+    margin-top: 40px;
+    background-color: $btn-background-primary;
+    color: $btn-color-primary;
+}
+
+.cart-btn:hover {
+    background-color: $btn-background-secondary;
+    color: $btn-color-secondary;
+    border: 1px solid $btn-border-secondary;
+}
+
 @media (max-width: 800px) {
     .shoe-detail-container {
         flex-direction: column;

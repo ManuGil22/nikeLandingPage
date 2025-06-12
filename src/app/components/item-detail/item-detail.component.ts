@@ -48,9 +48,11 @@ export class ItemDetailComponent implements OnInit {
     }
 
     changeSelectedShoe(imgIndex: number) {
-        this.mainImage = this.shoeData.imgs[imgIndex];
-        this.mainItemIndex = imgIndex;
-        this.sizeSelected = 0;
+        if (imgIndex != this.mainItemIndex){
+            this.mainImage = this.shoeData.imgs[imgIndex];
+            this.mainItemIndex = imgIndex;
+            this.sizeSelected = 0;
+        }
     }
 
     hasSizeAvailable(size: number): boolean {
