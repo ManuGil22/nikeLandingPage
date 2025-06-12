@@ -1,0 +1,41 @@
+<div class="main-container">
+    @if (!shoeData) {
+        <div class="spinner-container">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    } @else {
+        <div class="shoe-detail-container">
+            <div class="main-img-container">
+                <img src="{{ mainImage }}" class="shoe-img" alt="{{ shoeData.name }} image">
+            </div>
+            <div class="shoe-details">
+                <div class="shoe-headear">
+                    <h1 class="shoe-header bold">{{ shoeData.name }}</h1>
+                    <h2 class="category-label">Zapatillas para {{ getCategoryLabel(shoeData.category) }}</h2>
+                </div>
+                <h2 class="bold price">${{shoeData.price}}</h2>
+                <div class="mini-imgs-container">
+                    @for (img of shoeData.imgs; track $index) {
+                        <img class="{{$index == mainItemIndex ? 'mini-img selected' : 'mini-img'}}" (click)="changeSelectedShoe($index)" src="{{img}}" alt="mini-img">
+                    }
+                </div>
+                <div class="sizes-container">
+                    <h2 class="sizes-header">Seleccionar Talle (ARG)</h2>
+                    <div class="sizes">
+                        @for (size of SIZES; track $index) {
+                            <div [ngClass]="
+                                hasSizeAvailable(size) ? 
+                                sizeSelected == size ? 'size selected-size' : 'size' 
+                                : 'size disabled'" 
+                                (click)="setSizeSelected(size)">
+                                {{size}}
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

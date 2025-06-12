@@ -1,0 +1,157 @@
+@import '/src/variables.scss';
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 148px);
+    font-size: 28px;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 148px);
+}
+
+.shoe-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.shoe-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 35%;
+}
+
+.main-img-container {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: auto;
+}
+
+.shoe-img {
+    width: max(400px, 70%);
+    height: max(400px, 70%);
+    border-radius: 10px;
+}
+
+.shoe-header {
+    font-size: 1em;
+    margin: 0 !important;
+}
+
+.category-label {
+    color: $text-secondary;
+    font-size: 0.7em;
+}
+
+.shoe-header {
+    margin-bottom: 15px;
+}
+
+.mini-imgs-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.mini-img {
+    width: 80px;
+    height: 80px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+
+.mini-img:hover {
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.sizes-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sizes-header {
+    font-size: 0.7em;
+}
+
+.sizes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.size {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7em;
+    width: 70px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+}
+
+.size:hover {
+    cursor: pointer;
+    background-color: $background-secondary;
+    color: $text-primary;
+}
+
+.disabled {
+    background-color: $disabled-background;
+    color: $disabled-text;
+    border: 1px solid $disabled-border;
+    text-align: center;
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+    user-select: none;
+}
+
+.price {
+    font-size: 0.7em;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.selected {
+    border: 1px solid black;
+}
+
+.selected-size {
+    border: 1px solid black;
+    background-color: $background-secondary;
+    color: $text-primary;
+}
+
+@media (max-width: 800px) {
+    .shoe-detail-container {
+        flex-direction: column;
+    }
+
+    .shoe-details {
+        max-width: 90%;
+    }
+
+    .shoe-img {
+        width: max(400px, 60%);
+        height: max(400px, 60%);
+    }
+}

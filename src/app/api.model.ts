@@ -1,12 +1,12 @@
 export interface ShoesDto {
-    id: number,
+    id: string,
     name: string,
     category: string,
     img: string
 }
 
 export interface ShoeDto {
-    id: number,
+    id: string,
     shoeId: number,
     name: string,
     price: number,

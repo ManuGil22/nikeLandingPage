@@ -12,6 +12,7 @@ import { FeaturedComponent } from './components/featured/featured.component';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 import { ImageBannerComponent } from './components/image-banner/image-banner.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
+import { ItemDetailComponent } from './components/item-detail/item-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CategoryListComponent } from './components/category-list/category-list.
     FeaturedComponent,
     CategoryCardComponent,
     CategoryListComponent,
+    ItemDetailComponent,
   ],
   imports: [
     BrowserModule,
