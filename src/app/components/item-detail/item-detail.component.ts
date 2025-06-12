@@ -71,7 +71,9 @@ export class ItemDetailComponent implements OnInit {
             qty: 1,
             size: this.sizeSelected,
             color: this.shoeData.colors[this.mainItemIndex],
-            img: this.mainImage
+            img: this.mainImage,
+            name: this.shoeData.name,
+            precio: this.shoeData.price
         }
         this.cartService.addItem(newItem);
     }

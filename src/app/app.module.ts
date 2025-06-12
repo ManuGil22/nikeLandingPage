@@ -14,6 +14,7 @@ import { ImageBannerComponent } from './components/image-banner/image-banner.com
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CartComponent } from './components/cart/cart.component';
     CategoryListComponent,
     ItemDetailComponent,
     CartComponent,
+    CartItemComponent,
   ],
   imports: [
     BrowserModule,

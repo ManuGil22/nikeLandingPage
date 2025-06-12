@@ -20,15 +20,28 @@
 
 .modal-footer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.total-price {
+    font-weight: 500;
+    font-size: 1.1em;
 }
 
 .cart-btn {
     font-weight: 500;
     border-radius: 20px;
-    margin-top: 40px;
+    margin-top: 20px;
     background-color: $btn-background-primary;
     color: $btn-color-primary;
+}
+
+.delete-cart-btn {
+    margin: 20px 0;
+    width: fit-content;
+    align-self: center;
 }
 
 .cart-btn:hover {
@@ -37,6 +50,11 @@
     border: 1px solid $btn-border-secondary;
 }
 
+@media (max-width: 1200px) {
+    .modal.modal-slide-in-right .modal-dialog {
+        width: 50%;
+    }
+}
 
 @media (max-width: 800px) {
     .modal.modal-slide-in-right .modal-dialog {

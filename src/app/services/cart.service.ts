@@ -12,6 +12,8 @@ export class CartService {
     private itemsSubject = new Subject<ItemDto[]>();
     items$ = this.itemsSubject.asObservable();
 
+    constructor() { }
+
     registerOpenCallback(callback: () => void) {
         this.openModalCallback = callback;
     }
@@ -21,9 +23,9 @@ export class CartService {
     }
 
     addItem(shoe: ItemDto) {
-        if (this.itemAlreadyInCart(shoe)) {
-            let shoe: any = this.items.find(item => item.shoeId == shoe.shoeId);
-            shoe.qty = shoe.qty++;
+        let oldShoe = this.geItemIfAlreadyInCart(shoe)
+        if (oldShoe) {
+            oldShoe.qty = oldShoe.qty + 1;
         } else {
             this.items.push(shoe);
         }
@@ -35,7 +37,23 @@ export class CartService {
         return this.items;
     }
 
-    private itemAlreadyInCart(shoe: ItemDto): boolean {
-        return !!(this.items.find(item => (item.shoeId == shoe.shoeId) && (item.size == shoe.size)));
+    private geItemIfAlreadyInCart(shoe: ItemDto): ItemDto | null {
+        return this.items.find(item => (item.shoeId == shoe.shoeId) && (item.size == shoe.size) && (item.color == shoe.color)) || null;
+    }
+
+    getTotal(): number {
+        return this.items.reduce((acc, item) => acc + item.precio * item.qty, 0);
+    }
+
+    deleteCart() {
+        this.items = [];
+        this.itemsSubject.next(this.items);
+    }
+
+    deleteFromCart(item: ItemDto) {
+        const index = this.items.indexOf(item, 0);
+        if (index > -1) {
+            this.items.splice(index, 1);
+        }
     }
 }

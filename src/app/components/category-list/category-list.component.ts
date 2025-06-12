@@ -21,7 +21,7 @@ export class CategoryListComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.route.paramMap.pipe(take(1)).subscribe(params => {
+        this.route.paramMap.subscribe(params => {
             const category = params.get('category') || '';
             if (category in CATEGORIES) {
                 this.categoryData = getCategoryData(category);

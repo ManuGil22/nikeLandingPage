@@ -1,0 +1,36 @@
+.item-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.cart-item-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+}
+
+.delete-btn-container {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.delete-cart-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}

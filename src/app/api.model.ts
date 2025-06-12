@@ -23,4 +23,6 @@ export interface ItemDto {
     size: number,
     color: string,
     img: string,
+    name: string,
+    precio: number,
 }

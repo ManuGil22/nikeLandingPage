@@ -15,7 +15,7 @@ export class CartComponent implements OnInit, AfterViewInit {
 
     items$!: Observable<ItemDto[]>;
 
-    constructor(private cartService: CartService) { }
+    constructor(readonly cartService: CartService) { }
 
     ngOnInit() {
         this.items$ = this.cartService.items$;
@@ -28,5 +28,9 @@ export class CartComponent implements OnInit, AfterViewInit {
 
     openModal() {
         this.modalInstance.show();
+    }
+
+    deleteCart() {
+        this.cartService.deleteCart();
     }
 }

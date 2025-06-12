@@ -1,0 +1,18 @@
+<div class="item-container">
+    <div class="img-container">
+        <img src="{{ item.img }}" class="cart-item-img" alt="cart image">
+    </div>
+    <div class="item-description">
+        <span>{{ item.name }}</span>
+        <span>Talle {{ item.size }}</span>
+        <span>Unidades: {{ item.qty }}</span>
+        <span>${{ (item.precio * item.qty)}}</span>
+    </div>
+    <div class="delete-btn-container">
+        <button type="button" class="btn btn-danger delete-cart-btn" (click)="deleteFromCart(item)">
+            <span class="material-icons-outlined ">
+                delete
+            </span>
+        </button>
+    </div>
+</div>
