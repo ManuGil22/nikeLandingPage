@@ -13,6 +13,7 @@ import { CategoryCardComponent } from './components/category-card/category-card.
 import { ImageBannerComponent } from './components/image-banner/image-banner.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ItemDetailComponent } from './components/item-detail/item-detail.compon
     CategoryCardComponent,
     CategoryListComponent,
     ItemDetailComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs';
-import { ShoeDto } from '../../api.model';
+import { ItemDto, ShoeDto } from '../../api.model';
 import { ShoesDataService } from '../../services/shoes-data.service';
 import { getCategoryLabel, SIZES } from '../../mapper';
+import { CartService } from '../../services/cart.service';
 
 @Component({
     selector: 'app-item-detail',
@@ -23,6 +24,7 @@ export class ItemDetailComponent implements OnInit {
         private readonly route: ActivatedRoute,
         private readonly router: Router,
         private readonly shoesDataService: ShoesDataService,
+        private cartService: CartService,
     ) { }
 
     ngOnInit() {
@@ -36,7 +38,7 @@ export class ItemDetailComponent implements OnInit {
         })
     }
 
-    private fetchShoeData(shoeId: number){
+    private fetchShoeData(shoeId: number) {
         this.shoesDataService.getShoe(shoeId).subscribe((shoe: ShoeDto) => {
             this.shoeData = shoe;
             this.mainImage = shoe.imgs[0];
@@ -44,11 +46,11 @@ export class ItemDetailComponent implements OnInit {
     }
 
     private goToHome() {
-		this.router.navigate(['/featured']);
+        this.router.navigate(['/featured']);
     }
 
     changeSelectedShoe(imgIndex: number) {
-        if (imgIndex != this.mainItemIndex){
+        if (imgIndex != this.mainItemIndex) {
             this.mainImage = this.shoeData.imgs[imgIndex];
             this.mainItemIndex = imgIndex;
             this.sizeSelected = 0;
@@ -61,5 +63,16 @@ export class ItemDetailComponent implements OnInit {
 
     setSizeSelected(size: number) {
         this.sizeSelected = size;
+    }
+
+    addItemToCart() {
+        let newItem: ItemDto = {
+            shoeId: this.shoeData.shoeId,
+            qty: 1,
+            size: this.sizeSelected,
+            color: this.shoeData.colors[this.mainItemIndex],
+            img: this.mainImage
+        }
+        this.cartService.addItem(newItem);
     }
 }

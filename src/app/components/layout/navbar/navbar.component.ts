@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
     selector: 'app-navbar',
@@ -13,8 +14,9 @@ export class NavbarComponent implements OnInit {
 
     constructor(
         private readonly route: ActivatedRoute,
-        private readonly router: Router
-    ) {}
+        private readonly router: Router,
+        private cartService: CartService,
+    ) { }
 
     ngOnInit(): void {
         this.router.events
@@ -32,5 +34,9 @@ export class NavbarComponent implements OnInit {
             route = route.firstChild;
         }
         return route;
+    }
+
+    openCart() {
+        this.cartService.openCart();
     }
 }

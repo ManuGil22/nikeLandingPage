@@ -1,0 +1,19 @@
+<div class="modal fade modal-slide-in-right" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel"
+    aria-hidden="true" #cartModal>
+    <div class="modal-dialog modal-dialog-end modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartModalLabel">Carrito de compras</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                @for (item of (items$ | async); track $index) {
+                    
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn cart-btn" data-bs-dismiss="modal">Finalizar compra</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="d-grid gap-2 col-6 mx-auto">
-                <button class="btn cart-btn" type="button" [disabled]="!sizeSelected">Agregar al Carrito</button>
+                <button class="btn cart-btn" type="button" [disabled]="!sizeSelected" (click)="addItemToCart()">Agregar al Carrito</button>
             </div>
         </div>
     </div>

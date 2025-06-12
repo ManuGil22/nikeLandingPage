@@ -16,3 +16,11 @@ export interface ShoeDto {
     qty: number[],
     sizes: number[][]
 }
+
+export interface ItemDto {
+    shoeId: number,
+    qty: number,
+    size: number,
+    color: string,
+    img: string,
+}
