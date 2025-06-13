@@ -3,6 +3,7 @@ import { CartService } from '../../services/cart.service';
 import { Modal } from 'bootstrap';
 import { Observable } from 'rxjs';
 import { ItemDto } from '../../api.model';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-cart',
@@ -15,7 +16,10 @@ export class CartComponent implements OnInit, AfterViewInit {
 
     items$!: Observable<ItemDto[]>;
 
-    constructor(readonly cartService: CartService) { }
+    constructor(
+        readonly cartService: CartService,
+        private readonly router: Router
+    ) { }
 
     ngOnInit() {
         this.items$ = this.cartService.items$;
@@ -32,5 +36,9 @@ export class CartComponent implements OnInit, AfterViewInit {
 
     deleteCart() {
         this.cartService.deleteCart();
+    }
+
+    navigateToFinalizePurchase() {
+        this.router.navigate(['/finalizePurchase']);
     }
 }

@@ -1,0 +1,15 @@
+@import '/src/variables.scss';
+
+.purchase-btn {
+    font-weight: 500;
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: $btn-background-primary;
+    color: $btn-color-primary;
+}
+
+.purchase-btn:hover {
+    background-color: $btn-background-secondary;
+    color: $btn-color-secondary;
+    border: 1px solid $btn-border-secondary;
+}

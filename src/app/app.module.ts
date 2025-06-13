@@ -15,6 +15,9 @@ import { CategoryListComponent } from './components/category-list/category-list.
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { FinalizePurchaseComponent } from './components/finalize-purchase/finalize-purchase.component';
+import { PurchaseFormComponent } from './components/purchase-form/purchase-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,11 +33,14 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
     ItemDetailComponent,
     CartComponent,
     CartItemComponent,
+    FinalizePurchaseComponent,
+    PurchaseFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

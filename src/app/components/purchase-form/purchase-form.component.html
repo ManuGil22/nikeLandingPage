@@ -1,0 +1,77 @@
+<form [formGroup]="formularioCompra" (ngSubmit)="onSubmit()" class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input id="name" class="form-control"
+                [class.is-invalid]="formularioCompra.get('name')?.touched && formularioCompra.get('name')?.invalid"
+                formControlName="name" />
+            <div class="invalid-feedback">
+                El nombre es obligatorio.
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label for="surname" class="form-label">Apellido</label>
+            <input id="surname" class="form-control"
+                [class.is-invalid]="formularioCompra.get('surname')?.touched && formularioCompra.get('surname')?.invalid"
+                formControlName="surname" />
+            <div class="invalid-feedback">
+                El apellido es obligatorio.
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label for="department" class="form-label">Partido</label>
+            <input id="department" class="form-control"
+                [class.is-invalid]="formularioCompra.get('department')?.touched && formularioCompra.get('department')?.invalid"
+                formControlName="department" />
+            <div class="invalid-feedback">
+                El partido es obligatorio.
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label for="city" class="form-label">Ciudad</label>
+            <input id="city" class="form-control"
+                [class.is-invalid]="formularioCompra.get('city')?.touched && formularioCompra.get('city')?.invalid"
+                formControlName="city" />
+            <div class="invalid-feedback">
+                La ciudad es obligatoria.
+            </div>
+        </div>
+
+        <div class="col-12 mb-3">
+            <label for="address" class="form-label">Dirección</label>
+            <input id="address" class="form-control"
+                [class.is-invalid]="formularioCompra.get('address')?.touched && formularioCompra.get('address')?.invalid"
+                formControlName="address" />
+            <div class="invalid-feedback">
+                La dirección es obligatoria.
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label for="phone" class="form-label">Teléfono</label>
+            <input id="phone" class="form-control"
+                [class.is-invalid]="formularioCompra.get('phone')?.touched && formularioCompra.get('phone')?.invalid"
+                formControlName="phone" />
+            <div class="invalid-feedback">
+                Ingrese un teléfono válido.
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label for="identificationNumber" class="form-label">DNI</label>
+            <input id="identificationNumber" class="form-control"
+                [class.is-invalid]="formularioCompra.get('identificationNumber')?.touched && formularioCompra.get('identificationNumber')?.invalid"
+                formControlName="identificationNumber" />
+            <div class="invalid-feedback">
+                Ingrese un DNI válido.
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn purchase-btn">Finalizar compra</button>
+    </div>
+</form>

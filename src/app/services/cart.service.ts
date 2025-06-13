@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ItemDto } from '../api.model';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -9,8 +9,10 @@ export class CartService {
 
     private openModalCallback: (() => void) | null = null;
     private items: ItemDto[] = [];
-    private itemsSubject = new Subject<ItemDto[]>();
+    private itemsSubject = new BehaviorSubject<ItemDto[]>(this.items);
     items$ = this.itemsSubject.asObservable();
+    private isEmptySubject = new BehaviorSubject<boolean>(true);
+    isEmpty$ = this.isEmptySubject.asObservable();
 
     constructor() { }
 
@@ -30,11 +32,8 @@ export class CartService {
             this.items.push(shoe);
         }
         this.openCart();
+        this.isEmptySubject.next(this.items.length == 0);
         this.itemsSubject.next(this.items);
-    }
-
-    getItems() {
-        return this.items;
     }
 
     private geItemIfAlreadyInCart(shoe: ItemDto): ItemDto | null {
@@ -47,6 +46,7 @@ export class CartService {
 
     deleteCart() {
         this.items = [];
+        this.isEmptySubject.next(this.items.length == 0);
         this.itemsSubject.next(this.items);
     }
 
@@ -55,5 +55,7 @@ export class CartService {
         if (index > -1) {
             this.items.splice(index, 1);
         }
+        this.isEmptySubject.next(this.items.length == 0);
+        this.itemsSubject.next(this.items);
     }
 }

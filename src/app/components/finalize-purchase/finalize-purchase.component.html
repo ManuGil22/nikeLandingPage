@@ -1,0 +1,25 @@
+<div class="finalize-purchase-container">
+    <div *ngIf="visibleAlert" class="alert alert-success alert-dismissible fade show mt-3 sticky-top alerttext" role="alert">
+        ¡La compra se ha realizado con éxito!
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeAlert()"></button>
+    </div>
+    <div class="shadow p-4 bg-body rounded purchase-form bordered-container">
+        <app-purchase-form (formSubmitted)="showAlert()"></app-purchase-form>
+    </div>
+    <div class="shadow p-4 bg-body rounded cart-items bordered-container">
+        <div class="scrollable-container">
+            @for (item of (items$ | async); track $index) {
+            <div class="cart-item">
+                <div class="img-container">
+                    <img src="{{ item.img }}" class="shadow-sm bg-body rounded cart-item-img" alt="cart image">
+                </div>
+                <div class="item-description">
+                    <span>{{ item.name }} - Talle {{ item.size }}</span>
+                    <span>Unidades: {{ item.qty }} - ${{ (item.precio * item.qty)}}</span>
+                </div>
+            </div>
+            }
+        </div>
+        <span class="total-price">Total $ {{ cartService.getTotal() }}</span>
+    </div>
+</div>
