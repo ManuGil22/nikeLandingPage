@@ -26,6 +26,7 @@ export class CategoryListComponent implements OnInit {
             if (category in CATEGORIES) {
                 this.categoryData = getCategoryData(category);
                 this.setObservableMapper(category);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 this.goToHome();
             }

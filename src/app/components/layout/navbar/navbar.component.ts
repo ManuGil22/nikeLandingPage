@@ -11,6 +11,7 @@ import { CartService } from '../../../services/cart.service';
 export class NavbarComponent implements OnInit {
 
     category!: string;
+    menuOpen = false;
 
     constructor(
         private readonly route: ActivatedRoute,
@@ -25,6 +26,7 @@ export class NavbarComponent implements OnInit {
                 const route = this.getDeepestChild(this.route);
                 route.paramMap.subscribe(params => {
                     this.category = params.get('category') || '';
+                    this.menuOpen = false;
                 });
             });
     }
@@ -34,6 +36,10 @@ export class NavbarComponent implements OnInit {
             route = route.firstChild;
         }
         return route;
+    }
+
+    toggleMenu() {
+        this.menuOpen = !this.menuOpen;
     }
 
     openCart() {
