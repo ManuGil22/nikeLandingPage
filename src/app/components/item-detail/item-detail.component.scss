@@ -155,6 +155,10 @@
     border: 1px solid $btn-border-secondary;
 }
 
+.stock {
+    font-size: 1rem;
+}
+
 @media (max-width: 800px) {
     .shoe-detail-container {
         flex-direction: column;

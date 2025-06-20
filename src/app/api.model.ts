@@ -26,3 +26,14 @@ export interface ItemDto {
     name: string,
     precio: number,
 }
+
+export interface PurchaseDto {
+    name: string,
+    surname: string,
+    address: string,
+    department: string,
+    city: string,
+    phone: string,
+    identificationNumber: string,
+    shoes: ItemDto[];
+}

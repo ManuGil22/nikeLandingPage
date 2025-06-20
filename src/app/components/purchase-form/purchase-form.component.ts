@@ -8,7 +8,7 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 })
 export class PurchaseFormComponent {
 
-    @Output() formSubmitted = new EventEmitter<boolean>(false);
+    @Output() formSubmitted = new EventEmitter<PurchaseData>();
     formularioCompra!: FormGroup;
 
     constructor() { }
@@ -28,7 +28,7 @@ export class PurchaseFormComponent {
     onSubmit(): void {
         if (this.formularioCompra.valid) {
             const purchaseData: PurchaseData = this.formularioCompra.getRawValue();
-            this.formSubmitted.emit(true);
+            this.formSubmitted.emit(purchaseData);
         } else {
             this.formularioCompra.markAllAsTouched();
         }

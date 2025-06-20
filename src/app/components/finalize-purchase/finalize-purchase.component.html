@@ -4,11 +4,11 @@
         <button type="button" class="btn-close" aria-label="Close" (click)="closeAlert()"></button>
     </div>
     <div class="shadow p-4 bg-body rounded purchase-form bordered-container">
-        <app-purchase-form (formSubmitted)="showAlert()"></app-purchase-form>
+        <app-purchase-form (formSubmitted)="finalizePurchase($event)"></app-purchase-form>
     </div>
     <div class="shadow p-4 bg-body rounded cart-items bordered-container">
         <div class="scrollable-container">
-            @for (item of (items$ | async); track $index) {
+            @for (item of items; track $index) {
             <div class="cart-item">
                 <div class="img-container">
                     <img src="{{ item.img }}" class="shadow-sm bg-body rounded cart-item-img" alt="cart image">

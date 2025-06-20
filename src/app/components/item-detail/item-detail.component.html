@@ -24,6 +24,7 @@
             </div>
             <div class="sizes-container">
                 <h2 class="sizes-header">Seleccionar Talle (ARG)</h2>
+                @if (shoeData.qty[mainItemIndex] == 0) {<span class="category-label stock">Sin stock</span>}
                 <div class="sizes">
                     @for (size of SIZES; track $index) {
                     <div [ngClass]="

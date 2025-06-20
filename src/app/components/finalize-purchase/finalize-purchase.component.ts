@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ItemDto } from '../../api.model';
+import { ItemDto, PurchaseDto } from '../../api.model';
 import { CartService } from '../../services/cart.service';
 import { Router } from '@angular/router';
+import { PurchaseData } from '../purchase-form/purchase-form.component';
+import { ShoesDataService } from '../../services/shoes-data.service';
 
 @Component({
     selector: 'app-finalize-purchase',
@@ -11,16 +13,19 @@ import { Router } from '@angular/router';
 })
 export class FinalizePurchaseComponent implements OnInit {
 
-    items$!: Observable<ItemDto[]>;
+    items!: ItemDto[];
     visibleAlert = false;
 
     constructor(
         readonly cartService: CartService,
+        private readonly shoesDataService: ShoesDataService,
         private readonly router: Router,
     ) { }
 
     ngOnInit() {
-        this.items$ = this.cartService.items$;
+        this.cartService.items$.subscribe(items => {
+            this.items = items;
+        });
         this.cartService.isEmpty$.subscribe(isEmpty => {
             if (isEmpty) {
                 this.router.navigate(['/featured']);
@@ -28,8 +33,20 @@ export class FinalizePurchaseComponent implements OnInit {
         })
     }
 
-    showAlert(): void {
-        this.visibleAlert = true;
+    finalizePurchase(purchaseData: PurchaseData) {
+        const newPurchase = this.mapToPurchaseDto(purchaseData);
+        this.shoesDataService.makePurchase(newPurchase).subscribe(purchased => {
+            if (purchased) {
+                this.visibleAlert = true;
+            }
+        })
+    }
+
+    private mapToPurchaseDto(purchaseData: PurchaseData): PurchaseDto {
+        return {
+            shoes: this.items,
+            ...purchaseData
+        }
     }
 
     closeAlert(): void {
