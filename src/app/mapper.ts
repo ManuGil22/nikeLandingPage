@@ -6,19 +6,19 @@ export enum CATEGORIES {
 
 export const CATEGORY_DATA: Record<string, CategoryData> = {
     men: {
-        headerBanner: '/assets/menHeaderBanner.webp',
+        headerBanner: 'assets/menHeaderBanner.webp',
         categoryLabel: getCategoryLabel('men'),
-        footerBanner: '/assets/footerBanner.jpg',
+        footerBanner: 'assets/footerBanner.jpg',
     },
     woman: {
-        headerBanner: '/assets/womanHeaderBanner.webp',
+        headerBanner: 'assets/womanHeaderBanner.webp',
         categoryLabel: getCategoryLabel('woman'),
-        footerBanner: '/assets/womanFooterBanner.webp',
+        footerBanner: 'assets/womanFooterBanner.webp',
     },
     kids: {
-        headerBanner: '/assets/kidsHeaderBanner.jpg',
+        headerBanner: 'assets/kidsHeaderBanner.jpg',
         categoryLabel: getCategoryLabel('kids'),
-        footerBanner: '/assets/kidsFooterBanner.webp',
+        footerBanner: 'assets/kidsFooterBanner.webp',
     },
 };
 

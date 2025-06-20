@@ -12,19 +12,19 @@ export class FeaturedComponent {
     readonly menCategory: CategoryCardData = {
         categoryName: 'Hombres',
         categoryRef: '/men',
-        imgSrc: '/assets/men.webp'
+        imgSrc: 'assets/men.webp'
     }
 
     readonly womanCategory: CategoryCardData = {
         categoryName: 'Mujeres',
         categoryRef: '/woman',
-        imgSrc: '/assets/woman.webp'
+        imgSrc: 'assets/woman.webp'
     }
 
     readonly kidsCategory: CategoryCardData = {
         categoryName: 'Niños',
         categoryRef: '/kids',
-        imgSrc: '/assets/kids.webp'
+        imgSrc: 'assets/kids.webp'
     }
 
     constructor(readonly shoesFacade: ShoesFacadeService) {}
